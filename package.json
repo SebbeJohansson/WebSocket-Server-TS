@@ -1,12 +1,14 @@
 {
   "name": "WebSocketTest",
   "version": "1.0.0",
-  "main": "server.ts",
+  "main": "src/server.ts",
   "license": "MIT",
   "scripts": {
-    "dev": "npx ts-node server.ts",
+    "dev": "nodemon src/server.ts",
     "build": "npx tsc",
-    "start": "node build/server.js"
+    "start": "node dist/server.js",
+    "lint": "eslint src/**/*.ts",
+    "lint-fix": "eslint src/**/*.ts --fix"
   },
   "dependencies": {
     "@types/node": "^20.10.0",
@@ -14,6 +16,12 @@
     "ws": "^8.14.2"
   },
   "devDependencies": {
-    "@types/ws": "^8.5.10"
+    "@stylistic/eslint-plugin": "^1.4.1",
+    "@types/ws": "^8.5.10",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1"
   }
 }
