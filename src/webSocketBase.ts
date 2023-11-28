@@ -1,10 +1,21 @@
 import { Server } from 'http';
 import WebSocket, { WebSocketServer } from 'ws';
 
+export enum MessageType {
+  Authentication,
+  Data,
+  None,
+}
+
+export interface Message {
+  type: MessageType | string
+  data: any
+}
+
 export class WebSocketBase {
   private socket: WebSocket.Server;
-
   public path: string = '';
+  public authenticated: boolean = false;
 
   constructor(server: Server, path: string) {
     const socketServer = new WebSocketServer({ noServer: true, path });
